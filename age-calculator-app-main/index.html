@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  
+  <title>Frontend Mentor | Age calculator app</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="container">
+      <form action="" id="formulario">
+        <div class="form-container">
+          <div class="group-inputs">
+            <label for="">Day</label>
+            <input type="text" name="" id="day" name="day" placeholder="DD" required maxlength="2">
+            <small></small>
+          </div>
+          <div class="group-inputs">
+            <label for="">Month</label>
+            <input type="text" name="" id="month" placeholder="MM" required maxlength="2">
+            <small></small>
+          </div>
+          <div class="group-inputs">
+            <label for="">Year</label>
+            <input type="text" name="" id="year" placeholder="YYYY" required maxlength="4">
+            <small></small>
+          </div>
+        </form>
+        <div class="container-submit">
+          <button type="submit" class="submit-button"><img src="assets/images/icon-arrow.svg" alt=""></button>
+        </div>
+        </div>
+        <div class="output">
+          <h1><span id="yearSpan">--</span>Years</h1>
+          <h1><span id="daySpan">--</span>Days</h1>
+          <h1><span id="monthSpan">--</span>Months</h1>
+        </div>
+    </div>
+  </div>
+  <script>
+  // Adiciona um evento ao formulário que é ativado quando ele é enviado
+  document.getElementById('formulario').addEventListener('submit', function(event) {
+
+    
+    // Evita que o formulário seja enviado de forma padrão
+    event.preventDefault();
+
+    // Pega os valores de dia, mês e ano dos campos de entrada
+    const day = parseInt(document.getElementById('day').value);
+    const month = parseInt(document.getElementById('month').value);
+    const year = parseInt(document.getElementById('year').value);
+
+    // Verifica se os valores inseridos são números válidos
+    if (isNaN(day) || isNaN(month) || isNaN(year)) {
+        alert("Por favor, insira valores válidos.");
+        return; // Sai da função se houver valores inválidos
+    }
+
+    // Cria uma data de nascimento e pega a data atual
+    const birthDate = new Date(year, month - 1, day);
+    const today = new Date();
+    
+    // Calcula a diferença em anos, meses e dias
+    let ageYears = today.getFullYear() - birthDate.getFullYear();
+    let ageMonths = today.getMonth() - birthDate.getMonth();
+    let ageDays = today.getDate() - birthDate.getDate();
+
+    // Ajusta meses e dias se o dia atual for menor que o de nascimento
+    if (ageDays < 0) {
+        ageMonths--;
+        ageDays += new Date(today.getFullYear(), today.getMonth(), 0).getDate();
+    }
+
+    // Ajusta os anos se o mês atual for menor que o de nascimento
+    if (ageMonths < 0) {
+        ageYears--;
+        ageMonths += 12;
+    }
+
+    // Exibe os resultados nos elementos HTML
+    document.getElementById('yearSpan').textContent = ageYears;
+    document.getElementById('monthSpan').textContent = ageMonths;
+    document.getElementById('daySpan').textContent = ageDays;
+});
+
+
+  </script>
+</body>
+</html>

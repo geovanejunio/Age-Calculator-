@@ -1,0 +1,178 @@
+@font-face {
+font-family: 'Poppins-Bold';
+src: url(assets/fonts/Poppins-Bold.ttf);
+}
+
+@font-face {
+    font-family: 'Poppins-Bolditalic';
+    src: url(assets/fonts/Poppins-BoldItalic.ttf);
+}
+
+@font-face {
+    font-family: 'Poppins-ExtraBold';
+    src: url(assets/fonts/Poppins-ExtraBold.ttf);
+}
+
+@font-face {
+    font-family: 'Poppins-Italic';
+    src: url(assets/fonts/Poppins-Italic.ttf);
+}
+
+@font-face {
+    font-family: 'Poppins-Regular';
+    src: url(assets/fonts/Poppins-Regular.ttf);
+}
+
+/* 
+    CORES PRIMARIAS:
+
+    - Purple: hsl(259, 100%, 65%)
+    - Light red: hsl(0, 100%, 67%)
+    
+*/
+
+/* 
+    CORES NEUTRAS:
+
+    - White: hsl(0, 0%, 100%)
+    - Off white: hsl(0, 0%, 94%)
+    - Light grey: hsl(0, 0%, 86%)
+    - Smokey grey: hsl(0, 1%, 44%)
+    - Off black: hsl(0, 0%, 8%)
+*/
+
+:root{
+    /* CORES PRIMARIAS */
+    --primary-color-purple: hsl(259, 100%, 65%);
+    --primary-color-light-red: hsl(0, 100%, 67%);
+
+    /* CORES NEUTRAS */
+
+    --neutral-color-white:       hsl(0, 0%, 100%);
+    --neutral-color-off-white:   hsl(0, 0%, 94%);
+    --neutral-color-smokey-grey:  hsl(0, 1%, 44%);
+    --neutral-color-light-grey:  hsl(0, 0%, 86%);
+    --neutral-color-off-black: hsl(0, 0%, 8%);
+}
+
+body{
+    font-family: 'Poppins-Bold';
+    background-color: var(--neutral-color-off-white);
+     display: flex;
+    padding: 0 auto;
+    margin: 0 auto;
+    justify-content: center;
+    min-height: 100vh;
+    align-items: center; 
+}
+
+/* MAIN CARDS AND CONTAINER CONFIGURATION */
+
+/* CONFIGURAÇÃO DA DIV PRINCIPAL */
+.card{
+    box-shadow: 2px 2px 8px 4px;
+     /* /width: 40rem;  */ 
+    padding: 0.5rem;
+    border-radius: 2.3rem;
+     width: 700px;  
+    background-color: var(--neutral-color-light-grey);
+}
+
+/* CONFIGURAÇÃO DA DIV QUE CONTEM TUDO */
+.container{
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+/* CONFIGURAÇÃO DE FORMULÁRIO */
+form{
+    display: flex;
+}
+
+/* FORM CONTAINER CONFIGURATION */
+
+/* CONFIGURAÇÃO DO COONTAINER FORMULÁRIO */
+.form-container{
+    display: flex;
+    gap: 0.7rem;
+}
+
+/* CONFIGURAÇÃO DAS CAIXAS DE ENTRADA DA DIV .GROUP */
+.group-inputs{
+    display: flex;
+    flex-direction: column;
+}
+
+/* CONFIGURAÇÃO DOS LABELS */
+.group-inputs label{
+    font-family: 'Poppins-Bold';
+    font-weight: 600;
+}
+
+/* CONFIGURAÇÃO DO BOTÃO DE SUBMIT */
+.submit-button {
+    background-color: var(--primary-color-purple);
+    color: var(--neutral-color-white);
+    border-radius: 50%;
+    margin-right: -50px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    padding: 0.70rem;
+}
+
+/* CONFIGURAÇÃO DO INPUT TEXT */
+input[type=text] {
+    padding: 0.6rem;
+    border-radius: 20px;
+    border: 1px solid var(--neutral-color-smokey-grey);
+}
+
+/* OUTPUT DIV CONFIGURATION */
+
+/* CONFIGURAÇÃO DOS H1 NO OUTPUT*/
+.output h1 {
+    font-family: 'Poppins-ExtraBold';
+    font-style: italic;
+    height: fit-content;
+    font-weight: bold;
+}
+
+/* CONFIGURAÇÃO DO SPAN DA DIV OUTPUT */
+.output span{
+    color: var(--primary-color-purple);
+}
+
+@media screen and (max-width: 600px) {
+    body{
+        overflow-y: hidden;
+    }
+
+    .card{
+        width: 90%;
+        margin-left: 10px;
+        margin-right: 10px;
+        padding: 1rem;
+    }
+
+    .container{
+        gap: 0.2rem;
+        flex-direction: column;
+    }
+
+    .group-inputs{
+        width: 7rem;
+    }
+
+    .submit-button{
+        margin: 0px;
+    }
+
+    .output h1{
+        font-size: 1.4rem;
+    }
+}
